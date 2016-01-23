@@ -1,0 +1,26 @@
+{
+  "name": "showcaseApp",
+  "description": "showcaseApp",
+  "main": "webpack.config.js",
+  "authors": [
+    "JGluhov"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "showcase"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.9",
+    "uikit": "~2.24.3",
+    "angular-ui-router": "ui-router#~0.2.15"
+  }
+}

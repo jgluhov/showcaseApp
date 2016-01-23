@@ -1,0 +1,28 @@
+{
+  "name": "showcaseApp",
+  "version": "0.0.1",
+  "description": "showcaseApp",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "stylus-loader": "^1.5.0"
+  },
+  "devDependencies": {
+    "bower-webpack-plugin": "^0.1.9",
+    "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "html-webpack-plugin": "^2.7.1",
+    "path": "^0.12.7",
+    "style-loader": "^0.13.0",
+    "traceur-loader": "^0.6.3",
+    "webpack": "^1.12.11",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "development": "NODE_ENV=development webpack-dev-server",
+    "production": "NODE_ENV=production webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "JGluhov",
+  "license": "ISC"
+}
