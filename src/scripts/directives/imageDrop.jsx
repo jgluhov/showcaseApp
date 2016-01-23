@@ -8,33 +8,39 @@ export function imageDrop() {
 
     let dragOver = (e) => {
       e.preventDefault();
-      element.addClass('drag-over');
+      element.children('.uk-placeholder').addClass('drag-over');
     };
 
     let dragLeave = (e) => {
       e.preventDefault();
-      element.removeClass('drag-over');
+      element.children('.uk-placeholder').removeClass('drag-over');
     };
 
     let uploadImage = (e) => {
       let file = e.originalEvent.dataTransfer.files[0];
 
       let reader = new FileReader();
+
       reader.onload = function(event) {
         let data = event.target.result;
         scope.image = {info: file, data: data};
-        showImage(scope.image);
+        scope.appendImage(scope.image);
       };
+
       reader.readAsDataURL(file);
     };
 
-    let showImage = (image) => {
-      element.after(`
+    scope.appendImage = (image) => {
+      element.append(`
       <div class="uk-thumbnail uk-thumbnail-mini">
         <img src="${image.data}">
         <div class="uk-thumbnail-caption">${image.info.name}</div>
       </div>
       `);
+    };
+
+    scope.removeImage = () => {
+      element.children('.uk-thumbnail').remove();
     };
 
     element.bind('dragover', dragOver);
@@ -51,7 +57,16 @@ export function imageDrop() {
 
     this.getImage = () => {
       return $scope.image;
-    }
+    };
+
+    this.setImage = (image) => {
+      $scope.image = image;
+    };
+
+    this.deleteImage = () => {
+      $scope.image = {};
+      $scope.removeImage();
+    };
   }
 
   return {

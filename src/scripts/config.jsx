@@ -1,5 +1,5 @@
 
-export function Config($stateProvider, $urlRouterProvider) {
+export function config($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/showcase');
 
