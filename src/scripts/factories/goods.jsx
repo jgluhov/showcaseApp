@@ -1,3 +1,5 @@
+import faker from 'faker';
+
 export function goodsFactory() {
 
   function getGoods() {
@@ -8,7 +10,21 @@ export function goodsFactory() {
     return {name, cost, image};
   }
 
+  function getFakeGoods() {
+    let name = faker.commerce.productName();
+    let cost = faker.finance.amount();
+    let image = {
+      data: faker.image.sports(),
+      info: {
+        name: faker.company.bs()
+      }
+    };
+
+    return {name, cost, image}
+  }
+
   return {
-    getGoods: getGoods
+    getGoods: getGoods,
+    getFakeGoods: getFakeGoods
   };
 }

@@ -21,6 +21,8 @@
   "dependencies": {
     "angular": "~1.4.9",
     "uikit": "~2.24.3",
-    "angular-ui-router": "ui-router#~0.2.15"
-  }
+    "angular-ui-router": "ui-router#~0.2.15",
+    "angularUtils-pagination": "angular-utils-pagination#~0.10.0"
+  },
+  "devDependencies": {}
 }

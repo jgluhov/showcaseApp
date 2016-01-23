@@ -35,6 +35,7 @@
                         </div>
                     </fieldset>
                     <div class="uk-modal-footer uk-text-right">
+                        <button type="button" class="uk-button js-modal-ok" ng-click="fakeGoods()">FakeGoods</button>
                         <button class="uk-button uk-modal-close">Отмена</button>
                         <button type="submit" class="uk-button uk-button-primary js-modal-ok">Добавить</button>
                     </div>
@@ -43,24 +44,23 @@
         </div>
     </div>
 
-    <div class="uk-align-right" search>
-        <form class="uk-form">
+    <div class="uk-align-right" search-goods>
+        <form class="uk-form" name="searchForm" novalidate ng-submit="submit(searchForm)">
             <fieldset>
-                <label for="query" class="uk-hidden">Название</label>
+                <label for="searchQuery" class="uk-hidden">Название</label>
                 <input type="text"
-                       id="query"
-                       name="query"
+                       id="searchQuery"
+                       name="searchQuery"
                        class="uk-form-width-large"
-                       placeholder="Введите название товара для поиска">
+                       placeholder="Введите название товара для поиска"
+                       ng-model="searchQuery">
                 <button class="uk-button">Искать</button>
             </fieldset>
         </form>
     </div>
+
 </div>
 
-<div class="uk-clearfix">
-    <div class="uk-align-left" total-goods></div>
-</div>
-
+<div class="uk-align-left" total-goods></div>
 
 <div list-goods></div>

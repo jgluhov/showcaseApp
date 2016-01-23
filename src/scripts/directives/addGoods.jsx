@@ -1,6 +1,7 @@
 export function addGoods(goodsFactory) {
 
   function link(scope, element, attrs) {
+
     scope.submit = (form) => {
       scope.goods.image = scope.imageDropController.getImage();
       saveGoods(scope.goods);
@@ -19,8 +20,12 @@ export function addGoods(goodsFactory) {
 
       if ( modal.isActive() )
         modal.hide();
-
     };
+
+    scope.fakeGoods = () => {
+      let goods = goodsFactory.getFakeGoods();
+      saveGoods(goods);
+    }
   }
 
   function controller($scope) {
@@ -31,7 +36,7 @@ export function addGoods(goodsFactory) {
     }
   }
 
-  let saveGood = function (goods) {
+  let saveGoods = function (goods) {
     let savedGoods = JSON.parse(window.localStorage.getItem('goods'));
     if (!savedGoods) savedGoods = [];
 

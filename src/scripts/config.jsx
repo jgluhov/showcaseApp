@@ -1,5 +1,5 @@
 
-export function config($stateProvider, $urlRouterProvider) {
+export function config($stateProvider, $urlRouterProvider, paginationTemplateProvider) {
 
   $urlRouterProvider.otherwise('/showcase');
 
@@ -14,5 +14,7 @@ export function config($stateProvider, $urlRouterProvider) {
       url: '/deleted-goods',
       templateUrl: './templates/deleted-goods.html'
     })
+
+    paginationTemplateProvider.setPath('./templates/pagination.html');
 
 }
