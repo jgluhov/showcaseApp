@@ -3,7 +3,8 @@ var webpack = require('webpack'),
   path = require('path'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
-  BowerWebpackPlugin = require("bower-webpack-plugin");
+  BowerWebpackPlugin = require("bower-webpack-plugin"),
+  CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // Webpack configuration
 module.exports = {
@@ -56,6 +57,11 @@ module.exports = {
     new HtmlWebpackPlugin({template: path.join(__dirname, 'src','templates','index.ejs'), inject: false}),
     new BowerWebpackPlugin({
       searchResolveModulesDirectories: false
+    }),
+    new CopyWebpackPlugin([
+        { from: path.join('src', 'templates'), to: './templates' }
+    ], {
+      ignore: ['*.ejs']
     })
   ],
 

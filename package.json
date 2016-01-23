@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "bower-webpack-plugin": "^0.1.9",
+    "copy-webpack-plugin": "^0.3.3",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",

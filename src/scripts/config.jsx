@@ -7,12 +7,12 @@ export function Config($stateProvider, $urlRouterProvider) {
 
     .state('showcase', {
       url: '/showcase',
-      template: '<h1>Showcase</h1>'
+      templateUrl: './templates/showcase.html'
     })
 
     .state('deleted-goods', {
       url: '/deleted-goods',
-      template: '<h1>Deleted goods</h1>'
+      templateUrl: './templates/deleted-goods.html'
     })
 
 }
