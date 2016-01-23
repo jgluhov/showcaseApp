@@ -1,5 +1,6 @@
 import 'uikit/css/uikit.almost-flat.min.css';
 import 'uikit/css/components/placeholder.almost-flat.min.css';
+import 'uikit/css/components/form-file.almost-flat.min.css';
 import '../styles/app.styl';
 
 import 'angular';

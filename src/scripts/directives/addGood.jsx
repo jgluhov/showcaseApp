@@ -1,13 +1,21 @@
 export function addGood() {
 
-  let modal = ``;
-
   function link(scope, element, attrs) {
-    console.log('addGood')
+    scope.submit = () => {
+      console.log(scope.imageDropController.getImage())
+    }
+  }
+
+  function controller($scope) {
+
+    this.register = (imageDropController) => {
+      $scope.imageDropController = imageDropController;
+    }
   }
 
   return {
     restrict: 'A',
-    link: link
+    link: link,
+    controller: controller
   }
 }
