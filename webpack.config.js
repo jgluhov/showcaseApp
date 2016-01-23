@@ -9,7 +9,7 @@ var webpack = require('webpack'),
 module.exports = {
   entry: {
     bundle: [
-      'webpack-dev-server/client?http://localhost:8080',
+      'webpack-dev-server/client?http://localhost:8080/#/',
       'webpack/hot/dev-server',
       './src/scripts/boot'
     ]
@@ -32,7 +32,7 @@ module.exports = {
       {
         test: /\.jsx/,
         loader: 'traceur?experimental&runtime',
-        exclude: /node_modules/
+        exclude: /node_modules|bower_components/
       },
       {
         test: /\.css/,
@@ -40,10 +40,11 @@ module.exports = {
       },
       {
         test: /\.styl/,
-        loader: ExtractTextPlugin.extract('style', 'css!stylus?resolve url')
+        loader: ExtractTextPlugin.extract('style', 'css!stylus?resolve url'),
+        exclude: /node_modules|bower_components/
       },
       {
-        test: /\.(png|svg|eot|ttf|woff|woff2)/,
+        test: /\.(ttf|woff|woff2)/,
         loader: 'file'
       }
     ]
