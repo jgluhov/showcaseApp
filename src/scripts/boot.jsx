@@ -7,16 +7,19 @@ import 'angular';
 import 'angular-ui-router';
 
 import {config} from './config.jsx';
-import {addGood} from './directives/addGood.jsx';
+import {addGoods} from './directives/addGoods.jsx';
 import {imageDrop} from './directives/imageDrop.jsx';
 import {totalGoods} from './directives/totalGoods.jsx';
 import {listGoods} from './directives/listGoods.jsx';
 
+import {goodsFactory} from './factories/goods.jsx';
+
 angular.module('showcaseApp', ['ui.router'])
   .config(config)
-  .directive('addGood', addGood)
+  .directive('addGoods', addGoods)
   .directive('imageDrop', imageDrop)
   .directive('totalGoods', totalGoods)
-  .directive('listGoods', listGoods);
+  .directive('listGoods', listGoods)
+  .factory('goodsFactory', goodsFactory);
 
 angular.bootstrap(document.body, ['showcaseApp']);

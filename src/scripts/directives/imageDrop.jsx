@@ -70,7 +70,7 @@ export function imageDrop() {
   }
 
   return {
-    require: ['imageDrop', '^addGood'],
+    require: ['imageDrop', '^addGoods'],
     link: link,
     controller: controller
   }

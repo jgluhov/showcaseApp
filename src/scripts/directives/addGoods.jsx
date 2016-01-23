@@ -1,9 +1,9 @@
-export function addGood() {
+export function addGoods(goodsFactory) {
 
   function link(scope, element, attrs) {
     scope.submit = (form) => {
-      scope.good.image = scope.imageDropController.getImage();
-      saveGood(scope.good);
+      scope.goods.image = scope.imageDropController.getImage();
+      saveGoods(scope.goods);
 
       scope.clearForm();
       scope.closeModal();
@@ -11,7 +11,7 @@ export function addGood() {
 
     scope.clearForm = () => {
       scope.imageDropController.deleteImage();
-      scope.good = initGood();
+      scope.goods = goodsFactory.getGoods();
     };
 
     scope.closeModal = () => {
@@ -24,26 +24,19 @@ export function addGood() {
   }
 
   function controller($scope) {
-    $scope.good = initGood();
+    $scope.goods = goodsFactory.getGoods();
 
     this.register = (imageDropController) => {
       $scope.imageDropController = imageDropController;
     }
   }
 
-  let initGood = () => {
-    let name = '';
-    let cost = 0;
-    let image = null;
-    return {name, cost, image};
-  };
+  let saveGood = function (goods) {
+    let savedGoods = JSON.parse(window.localStorage.getItem('goods'));
+    if (!savedGoods) savedGoods = [];
 
-  let saveGood = function (good) {
-    let goods = JSON.parse(window.localStorage.getItem('goods'));
-    if (!goods) goods = [];
-
-    goods.push(good);
-    window.localStorage.setItem('goods', JSON.stringify(goods));
+    savedGoods.push(goods);
+    window.localStorage.setItem('goods', JSON.stringify(savedGoods));
   };
 
   return {
