@@ -22,7 +22,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.js', '.jsx','.html'],
+    extensions: ['', '.js', '.jsx', '.jade'],
     modulesDirectories: ['node_modules', 'bower_components']
   },
 
@@ -47,6 +47,9 @@ module.exports = {
       {
         test: /\.(ttf|woff|woff2)/,
         loader: 'file'
+      },
+      {
+        test: /\.html$/, loader: "raw-loader"
       }
     ]
   },
@@ -59,9 +62,10 @@ module.exports = {
       searchResolveModulesDirectories: false
     }),
     new CopyWebpackPlugin([
-        { from: path.join('src', 'templates'), to: './templates' }
+        { from: path.join('src', 'templates'), to: './templates' },
+        { from: path.join('src', 'scripts', 'directives'), to: './templates'}
     ], {
-      ignore: ['*.ejs']
+      ignore: ['*.ejs', '*.jsx']
     })
   ],
 

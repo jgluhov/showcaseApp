@@ -13,7 +13,7 @@ export function config($stateProvider, $urlRouterProvider, paginationTemplatePro
     .state('deleted-goods', {
       url: '/deleted-goods',
       templateUrl: './templates/deleted-goods.html'
-    })
+    });
 
     paginationTemplateProvider.setPath('./templates/pagination.html');
 

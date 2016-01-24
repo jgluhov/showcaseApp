@@ -1,6 +1,6 @@
 export function totalGoods() {
 
-  let template = `<div>Всего товаров <strong ng-bind="totalGoods"></strong></div>`;
+  let template = `<strong>Всего товаров <span ng-bind="totalGoods"></span></strong>`;
 
   function link(scope, element, attrs) {
 

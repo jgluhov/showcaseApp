@@ -2,7 +2,7 @@ import faker from 'faker';
 
 export function goodsFactory() {
 
-  function getGoods() {
+  function getGoodsModel() {
     let name = '';
     let cost = 0;
     let image = null;
@@ -10,7 +10,17 @@ export function goodsFactory() {
     return {name, cost, image};
   }
 
-  function getFakeGoods() {
+  function getAllGoods() {
+    let goods = JSON.parse(window.localStorage.getItem('goods'));
+    return goods ? goods : [];
+  }
+
+  function getGoodsLength() {
+    let goods = JSON.parse(window.localStorage.getItem('goods'));
+    return goods ? goods.length : 0;
+  }
+
+  function generateFakeGoods() {
     let name = faker.commerce.productName();
     let cost = faker.finance.amount();
     let image = {
@@ -19,12 +29,13 @@ export function goodsFactory() {
         name: faker.company.bs()
       }
     };
-
     return {name, cost, image}
   }
 
   return {
-    getGoods: getGoods,
-    getFakeGoods: getFakeGoods
+    getGoodsModel: getGoodsModel,
+    generateFakeGoods: generateFakeGoods,
+    getAllGoods: getAllGoods,
+    getGoodsLength: getGoodsLength
   };
 }

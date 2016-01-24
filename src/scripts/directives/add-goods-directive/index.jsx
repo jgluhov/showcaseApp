@@ -12,7 +12,7 @@ export function addGoods(goodsFactory) {
 
     scope.clearForm = () => {
       scope.imageDropController.deleteImage();
-      scope.goods = goodsFactory.getGoods();
+      scope.goods = goodsFactory.getGoodsModel();
     };
 
     scope.closeModal = () => {
@@ -22,14 +22,14 @@ export function addGoods(goodsFactory) {
         modal.hide();
     };
 
-    scope.fakeGoods = () => {
-      let goods = goodsFactory.getFakeGoods();
+    scope.generateFakeGoods = () => {
+      let goods = goodsFactory.generateFakeGoods();
       saveGoods(goods);
     }
   }
 
   function controller($scope) {
-    $scope.goods = goodsFactory.getGoods();
+    $scope.goods = goodsFactory.getAllGoods();
 
     this.register = (imageDropController) => {
       $scope.imageDropController = imageDropController;

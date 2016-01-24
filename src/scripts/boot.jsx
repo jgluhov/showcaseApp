@@ -8,11 +8,13 @@ import 'angular-ui-router';
 import 'angularUtils-pagination/dirPagination';
 
 import {config} from './config.jsx';
-import {addGoods} from './directives/addGoods.jsx';
-import {imageDrop} from './directives/imageDrop.jsx';
-import {totalGoods} from './directives/totalGoods.jsx';
-import {listGoods} from './directives/listGoods.jsx';
-import {searchGoods} from './directives/searchGoods.jsx';
+import {addGoods} from './directives/add-goods-directive';
+import {imageDrop} from './directives/image-drop-directive';
+import {totalGoods} from './directives/total-goods-directive';
+import {listGoods} from './directives/list-goods-directive';
+import {searchGoods} from './directives/search-goods-directive/index.jsx';
+import {goodsPerPage} from './directives/goods-per-page-directive';
+import {goodsPerPageService} from './services/goodsPerPageService.jsx';
 
 import {goodsFactory} from './factories/goods.jsx';
 
@@ -25,6 +27,8 @@ angular.module('showcaseApp', ['ui.router','angularUtils.directives.dirPaginatio
   .directive('totalGoods', totalGoods)
   .directive('listGoods', listGoods)
   .directive('searchGoods', searchGoods)
+  .directive('goodsPerPage', goodsPerPage)
+  .service('goodsPerPageService', goodsPerPageService)
   .filter('sale', saleFilter)
   .factory('goodsFactory', goodsFactory);
 

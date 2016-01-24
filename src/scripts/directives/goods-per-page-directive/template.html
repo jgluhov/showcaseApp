@@ -1,0 +1,5 @@
+<div class="goods-per-page-content"><span>Товаров на странице</span>
+  <ul class="uk-pagination">
+    <li ng-repeat="item in items" ng-click="select($index)" ng-class="selected === $index ? 'uk-active' : ''"><a ng-bind="item"></a></li>
+  </ul>
+</div>

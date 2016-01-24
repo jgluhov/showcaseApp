@@ -15,6 +15,7 @@ export function searchGoods() {
 
   return {
     restrict: 'A',
+    scope: {},
     link: link,
     controller: controller
   }

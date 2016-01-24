@@ -1,6 +1,6 @@
 <div class="uk-clearfix">
     <div class="uk-align-left" add-goods>
-        <a href="#addGood" class="uk-button uk-button-success" data-uk-modal="{center:true}">
+        <a href="#addGood" class="uk-button uk-button-success button-showcase-primary" data-uk-modal="{center:true}">
             <i class="uk-icon-plus"></i> Добавить товар
         </a>
         <div id="addGood" class="uk-modal">
@@ -35,7 +35,7 @@
                         </div>
                     </fieldset>
                     <div class="uk-modal-footer uk-text-right">
-                        <button type="button" class="uk-button js-modal-ok" ng-click="fakeGoods()">FakeGoods</button>
+                        <button type="button" class="uk-button js-modal-ok" ng-click="generateFakeGoods()">FakeGoods</button>
                         <button class="uk-button uk-modal-close">Отмена</button>
                         <button type="submit" class="uk-button uk-button-primary js-modal-ok">Добавить</button>
                     </div>
@@ -54,13 +54,15 @@
                        class="uk-form-width-large"
                        placeholder="Введите название товара для поиска"
                        ng-model="searchQuery">
-                <button class="uk-button">Искать</button>
+                <button class="uk-button uk-button-primary button-showcase-secondary">Искать</button>
             </fieldset>
         </form>
     </div>
 
 </div>
 
-<div class="uk-align-left" total-goods></div>
-
-<div list-goods></div>
+<!--<div class="uk-clearfix">-->
+    <!--<div class="uk-align-left" total-goods></div>-->
+    <!--<div class="uk-align-right" goods-per-page></div>-->
+<!--</div>-->
+<div class="list-goods" list-goods></div>
