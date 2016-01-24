@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="uk-height-1-1">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,23 +10,21 @@
     <link rel="stylesheet" href="styles.css">
     <% } %>
 </head>
-<body class="uk-height-1-1">
-    <div class="uk-vertical-align uk-text-center uk-height-1-1">
-        <div class="uk-vertical-align-middle showcase-content">
-
-            <ul class="uk-tab" data-uk-tab>
-                <li ui-sref-active="uk-active"><a ui-sref="showcase">Витрина</a></li>
-                <li ui-sref-active="uk-active"><a ui-sref="deleted-goods">Удаленные товары</a></li>
-            </ul>
-            <div class="uk-panel uk-panel-box uk-panel-box-secondary uk-text-left showcase-panel">
+<body>
+    <div class="ui middle aligned center aligned grid">
+        <div class="column sc-column">
+            <div class="ui container">
+                <div class="ui top attached tabular menu">
+                    <a ui-sref-active="active" class="item" ui-sref="showcase">Витрина</a>
+                    <a ui-sref-active="active" class="item" ui-sref="deleted-goods">Удаленные товары</a>
+                </div>
                 <div ui-view></div>
             </div>
         </div>
     </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/uikit/js/uikit.min.js"></script>
-    <script src="bower_components/uikit/js/components/upload.min.js"></script>
+    <script src="bower_components/semantic/dist/semantic.min.js"></script>
     <script src="bundle.js"></script>
 </body>
 </html>

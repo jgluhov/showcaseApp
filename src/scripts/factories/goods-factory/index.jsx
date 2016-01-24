@@ -4,7 +4,7 @@ export function goodsFactory() {
 
   function getGoodsModel() {
     let name = '';
-    let cost = 0;
+    let cost = null;
     let image = null;
 
     return {name, cost, image};
@@ -18,6 +18,14 @@ export function goodsFactory() {
   function getGoodsLength() {
     let goods = JSON.parse(window.localStorage.getItem('goods'));
     return goods ? goods.length : 0;
+  }
+
+  function saveGoods(goods) {
+    let savedGoods = JSON.parse(window.localStorage.getItem('goods'));
+    if (!savedGoods) savedGoods = [];
+
+    savedGoods.push(goods);
+    window.localStorage.setItem('goods', JSON.stringify(savedGoods));
   }
 
   function generateFakeGoods() {
@@ -36,6 +44,7 @@ export function goodsFactory() {
     getGoodsModel: getGoodsModel,
     generateFakeGoods: generateFakeGoods,
     getAllGoods: getAllGoods,
-    getGoodsLength: getGoodsLength
+    getGoodsLength: getGoodsLength,
+    saveGoods: saveGoods
   };
 }

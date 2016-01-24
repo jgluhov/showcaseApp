@@ -1,52 +1,55 @@
-export function addGoods(goodsFactory) {
+export function addGoods(goodsFactory, $compile, $templateRequest) {
 
   function link(scope, element, attrs) {
+    let self = scope;
 
-    scope.submit = (form) => {
-      scope.goods.image = scope.imageDropController.getImage();
-      saveGoods(scope.goods);
+    $templateRequest('templates/add-goods-directive/template.html').then((html) => {
+      var template = angular.element(html);
+      element.append(template);
+      $compile(template)(scope);
+      setupModal();
+      initModel();
+    });
 
-      scope.clearForm();
-      scope.closeModal();
+    let initModel = () => {
+      self.goods = goodsFactory.getGoodsModel();
     };
 
-    scope.clearForm = () => {
-      scope.imageDropController.deleteImage();
-      scope.goods = goodsFactory.getGoodsModel();
+    let setupModal = () => {
+      let modal = element.find('.modal');
+      modal
+        .modal({ blurring: true })
+        .modal('attach events', '.add-goods', 'show')
+        .modal('setting', 'closable', false)
+        .modal({
+          onDeny    : onDeny,
+          onApprove : onApprove
+        })
     };
 
-    scope.closeModal = () => {
-      let modal = UIkit.modal("#addGood");
-
-      if ( modal.isActive() )
-        modal.hide();
+    let onApprove = () => {
+      if(self.goods.name !== "" && self.goods.cost !== null) {
+        goodsFactory.saveGoods(self.goods);
+        self.$apply(() => {
+          self.goods = goodsFactory.getGoodsModel();
+        });
+        return true;
+      }
+      return false
     };
 
-    scope.generateFakeGoods = () => {
-      let goods = goodsFactory.generateFakeGoods();
-      saveGoods(goods);
-    }
+    let onDeny = () => {
+      return true
+    };
+
+    //scope.generateFakeGoods = () => {
+    //  let goods = goodsFactory.generateFakeGoods();
+    //  goodsFactory.saveGoods(goods);
+    //}
   }
-
-  function controller($scope) {
-    $scope.goods = goodsFactory.getAllGoods();
-
-    this.register = (imageDropController) => {
-      $scope.imageDropController = imageDropController;
-    }
-  }
-
-  let saveGoods = function (goods) {
-    let savedGoods = JSON.parse(window.localStorage.getItem('goods'));
-    if (!savedGoods) savedGoods = [];
-
-    savedGoods.push(goods);
-    window.localStorage.setItem('goods', JSON.stringify(savedGoods));
-  };
 
   return {
     restrict: 'A',
-    link: link,
-    controller: controller
+    link: link
   }
 }

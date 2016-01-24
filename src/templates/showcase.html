@@ -1,68 +1,94 @@
-<div class="uk-clearfix">
-    <div class="uk-align-left" add-goods>
-        <a href="#addGood" class="uk-button uk-button-success button-showcase-primary" data-uk-modal="{center:true}">
-            <i class="uk-icon-plus"></i> Добавить товар
-        </a>
-        <div id="addGood" class="uk-modal">
-            <form class="uk-form uk-form-stacked" name="addGoodForm" ng-submit="submit(addGoodForm)" novalidate>
-                <div class="uk-modal-dialog">
-                    <a class="uk-modal-close uk-close"></a>
-                    <div class="uk-modal-header">
-                        <h2>Добавить товар</h2>
-                    </div>
-                    <fieldset>
-                        <div class="uk-form-row">
-                            <label for="name" class="uk-form-label">Название</label>
-                            <input type="text"
-                                   id="name"
-                                   name="name"
-                                   class="uk-form-large uk-width-1-1"
-                                   ng-model="good.name">
-                        </div>
-                        <div class="uk-form-row">
-                            <label for="cost" class="uk-form-label">Цена</label>
-                            <input type="number"
-                                   id="cost"
-                                   name="cost"
-                                   class="uk-form-large uk-text-right"
-                                   ng-model="good.cost">
-                        </div>
-                        <div class="uk-form-row" image-drop>
-                            <div class="uk-placeholder">
-                                <i class="uk-icon-cloud-upload uk-icon-medium uk-text-muted uk-margin-small-right"></i>
-                                Перетащите фото
-                            </div>
-                        </div>
-                    </fieldset>
-                    <div class="uk-modal-footer uk-text-right">
-                        <button type="button" class="uk-button js-modal-ok" ng-click="generateFakeGoods()">FakeGoods</button>
-                        <button class="uk-button uk-modal-close">Отмена</button>
-                        <button type="submit" class="uk-button uk-button-primary js-modal-ok">Добавить</button>
-                    </div>
-                </div>
-            </form>
+<div class="ui segment sc-segment">
+
+    <div class="ui right aligned grid">
+        <div class="left floated left aligned six wide column">
+            <!--1-->
+            <div class="ui primary button add-goods" add-goods>
+                <i class="icon plus"></i>
+                Добавить товар
+            </div>
+
+        </div>
+        <div class="right floated right aligned eight wide column">
+            <!--2-->
+            <div class="ui fluid action input">
+                <input type="text" placeholder="Введите название товара для поиска">
+                <button class="ui icon button">
+                    Поиск
+                </button>
+            </div>
+
         </div>
     </div>
 
-    <div class="uk-align-right" search-goods>
-        <form class="uk-form" name="searchForm" novalidate ng-submit="submit(searchForm)">
-            <fieldset>
-                <label for="searchQuery" class="uk-hidden">Название</label>
-                <input type="text"
-                       id="searchQuery"
-                       name="searchQuery"
-                       class="uk-form-width-large"
-                       placeholder="Введите название товара для поиска"
-                       ng-model="searchQuery">
-                <button class="uk-button uk-button-primary button-showcase-secondary">Искать</button>
-            </fieldset>
-        </form>
-    </div>
 
 </div>
+
+<!--<div class="uk-clearfix">-->
+    <!--<div class="uk-align-left" add-goods>-->
+        <!--<a href="#addGood" class="uk-button uk-button-success button-showcase-primary" data-uk-modal="{center:true}">-->
+            <!--<i class="uk-icon-plus"></i> Добавить товар-->
+        <!--</a>-->
+        <!--<div id="addGood" class="uk-modal">-->
+            <!--<form class="uk-form uk-form-stacked" name="addGoodForm" ng-submit="submit(addGoodForm)" novalidate>-->
+                <!--<div class="uk-modal-dialog">-->
+                    <!--<a class="uk-modal-close uk-close"></a>-->
+                    <!--<div class="uk-modal-header">-->
+                        <!--<h2>Добавить товар</h2>-->
+                    <!--</div>-->
+                    <!--<fieldset>-->
+                        <!--<div class="uk-form-row">-->
+                            <!--<label for="name" class="uk-form-label">Название</label>-->
+                            <!--<input type="text"-->
+                                   <!--id="name"-->
+                                   <!--name="name"-->
+                                   <!--class="uk-form-large uk-width-1-1"-->
+                                   <!--ng-model="good.name">-->
+                        <!--</div>-->
+                        <!--<div class="uk-form-row">-->
+                            <!--<label for="cost" class="uk-form-label">Цена</label>-->
+                            <!--<input type="number"-->
+                                   <!--id="cost"-->
+                                   <!--name="cost"-->
+                                   <!--class="uk-form-large uk-text-right"-->
+                                   <!--ng-model="good.cost">-->
+                        <!--</div>-->
+                        <!--<div class="uk-form-row" image-drop>-->
+                            <!--<div class="uk-placeholder">-->
+                                <!--<i class="uk-icon-cloud-upload uk-icon-medium uk-text-muted uk-margin-small-right"></i>-->
+                                <!--Перетащите фото-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</fieldset>-->
+                    <!--<div class="uk-modal-footer uk-text-right">-->
+                        <!--<button type="button" class="uk-button js-modal-ok" ng-click="generateFakeGoods()">FakeGoods</button>-->
+                        <!--<button class="uk-button uk-modal-close">Отмена</button>-->
+                        <!--<button type="submit" class="uk-button uk-button-primary js-modal-ok">Добавить</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="uk-align-right" search-goods>-->
+        <!--<form class="uk-form" name="searchForm" novalidate ng-submit="submit(searchForm)">-->
+            <!--<fieldset>-->
+                <!--<label for="searchQuery" class="uk-hidden">Название</label>-->
+                <!--<input type="text"-->
+                       <!--id="searchQuery"-->
+                       <!--name="searchQuery"-->
+                       <!--class="uk-form-width-large"-->
+                       <!--placeholder="Введите название товара для поиска"-->
+                       <!--ng-model="searchQuery">-->
+                <!--<button class="uk-button uk-button-primary button-showcase-secondary">Искать</button>-->
+            <!--</fieldset>-->
+        <!--</form>-->
+    <!--</div>-->
+
+<!--</div>-->
 
 <!--<div class="uk-clearfix">-->
     <!--<div class="uk-align-left" total-goods></div>-->
     <!--<div class="uk-align-right" goods-per-page></div>-->
 <!--</div>-->
-<div class="list-goods" list-goods></div>
+<!--<div class="list-goods" list-goods></div>-->

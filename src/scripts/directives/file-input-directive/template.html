@@ -1,0 +1,11 @@
+<div class="fields">
+    <div class="four wide field">
+        <div class="ui labeled input">
+            <input type="file" id="goods-image" file-model="goods.image" />
+            <input type="button" class="ui button primary" value="Browse..."/>
+        </div>
+    </div>
+    <div class="eight wide field">
+        <div class="ui label" ng-show="goods.image.file.name" ng-bind="goods.image.file.name"></div>
+    </div>
+</div>

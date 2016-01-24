@@ -45,7 +45,7 @@ module.exports = {
         exclude: /node_modules|bower_components/
       },
       {
-        test: /\.(ttf|woff|woff2)/,
+        test: /\.(png|svg|ttf|eot|woff|woff2)/,
         loader: 'file'
       },
       {
