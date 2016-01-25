@@ -25,5 +25,7 @@
     "angularUtils-pagination": "angular-utils-pagination#~0.10.0",
     "semantic": "semantic-ui#~2.1.8"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "ngstorage": "~0.3.10"
+  }
 }

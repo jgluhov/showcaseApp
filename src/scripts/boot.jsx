@@ -5,9 +5,11 @@ import '../styles/app.styl';
 
 import 'angular';
 import 'angular-ui-router';
+import 'ngstorage';
 import 'angularUtils-pagination/dirPagination';
 
 import {config} from './config.jsx';
+import {run} from './run.jsx';
 import {addGoods} from './directives/add-goods-directive';
 import {imageDrop} from './directives/image-drop-directive';
 import {totalGoods} from './directives/total-goods-directive';
@@ -22,8 +24,9 @@ import {goodsFactory} from './factories/goods-factory/index.jsx';
 
 import {saleFilter} from './filters/sale.jsx';
 
-angular.module('showcaseApp', ['ui.router','angularUtils.directives.dirPagination'])
+angular.module('showcaseApp', ['ui.router','ngStorage','angularUtils.directives.dirPagination'])
   .config(config)
+  .run(run)
   .directive('addGoods', addGoods)
   .directive('imageDrop', imageDrop)
   .directive('totalGoods', totalGoods)

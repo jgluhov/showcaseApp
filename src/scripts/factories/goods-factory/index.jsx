@@ -1,6 +1,6 @@
-import faker from 'faker';
+//import faker from 'faker';
 
-export function goodsFactory() {
+export function goodsFactory($localStorage) {
 
   function getGoodsModel() {
     let name = '';
@@ -11,8 +11,7 @@ export function goodsFactory() {
   }
 
   function getAllGoods() {
-    let goods = JSON.parse(window.localStorage.getItem('goods'));
-    return goods ? goods : [];
+    return $localStorage.goods ? $localStorage.goods : [];
   }
 
   function getGoodsLength() {
@@ -21,28 +20,27 @@ export function goodsFactory() {
   }
 
   function saveGoods(goods) {
-    let savedGoods = JSON.parse(window.localStorage.getItem('goods'));
-    if (!savedGoods) savedGoods = [];
+    if (!$localStorage.goods)
+      $localStorage.goods = [];
 
-    savedGoods.push(goods);
-    window.localStorage.setItem('goods', JSON.stringify(savedGoods));
+    $localStorage.goods.push(goods);
   }
 
-  function generateFakeGoods() {
-    let name = faker.commerce.productName();
-    let cost = faker.finance.amount();
-    let image = {
-      data: faker.image.sports(),
-      info: {
-        name: faker.company.bs()
-      }
-    };
-    return {name, cost, image}
-  }
+  //function generateFakeGoods() {
+  //  let name = faker.commerce.productName();
+  //  let cost = faker.finance.amount();
+  //  let image = {
+  //    data: faker.image.sports(),
+  //    info: {
+  //      name: faker.company.bs()
+  //    }
+  //  };
+  //  return {name, cost, image}
+  //}
 
   return {
     getGoodsModel: getGoodsModel,
-    generateFakeGoods: generateFakeGoods,
+    //generateFakeGoods: generateFakeGoods,
     getAllGoods: getAllGoods,
     getGoodsLength: getGoodsLength,
     saveGoods: saveGoods

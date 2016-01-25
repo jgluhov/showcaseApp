@@ -3,6 +3,7 @@ export function addGoods(goodsFactory, $compile, $templateRequest) {
   function link(scope, element, attrs) {
     let self = scope;
 
+
     $templateRequest('templates/add-goods-directive/template.html').then((html) => {
       var template = angular.element(html);
       element.append(template);
@@ -29,14 +30,15 @@ export function addGoods(goodsFactory, $compile, $templateRequest) {
 
     let onApprove = () => {
       if(self.goods.name !== "" && self.goods.cost !== null) {
-        goodsFactory.saveGoods(self.goods);
         self.$apply(() => {
+          goodsFactory.saveGoods(self.goods);
           self.goods = goodsFactory.getGoodsModel();
         });
         return true;
       }
       return false
     };
+
 
     let onDeny = () => {
       return true
